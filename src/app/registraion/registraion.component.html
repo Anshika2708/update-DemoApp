@@ -1,0 +1,80 @@
+<form [formGroup]="regForm" novalidate>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Register</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="dismissModal()"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row my-3">
+        <div class="col form-group text-center">
+            <div class="img" >
+                <img [src]="imgurl" >
+                <input type="file" id="file" style="display:none;" (change)="onImageChange($event)" class="photo">
+                <label for="file">Upload Your Photo</label> <br>
+                <span *ngIf="imgValid">image size should be less than 310*325 pixel</span>
+              </div>        
+        </div>
+        </div>
+        <div class="row my-3">
+        <div class="col-6 form-group">
+            <input type="text" class="form-control form-control-sm" formControlName="firstname" placeholder="First Name">
+            <span *ngIf="firstname && firstname.invalid" class="require">*This field is require</span>
+        </div>
+        <div class="col-6 form-group">
+            <input type="text" class="form-control form-control-sm" formControlName="lastname" placeholder="Last Name">
+            <span *ngIf="lastname && lastname.invalid" class="require">*This field is require</span>
+        </div>
+        </div>
+        <div class="row my-3">
+        <div class="col form-group">
+            <input type="email" class="form-control form-control-sm" formControlName="email" placeholder="Email">
+        </div>
+        </div>
+        <div class="row my-3">
+        <div class="col form-group">
+            <input type="number" class="form-control form-control-sm" formControlName="phone" placeholder="(541) 754-3010">
+        </div>
+        </div>
+        <div class="row my-3">
+        <div class="col form-group">
+            Age <input type="range" id="age" class="form-range" min="10" max="80" step="1" formControlName="age" style="width:100%">
+        </div>
+        </div>
+        <div class="row my-3">
+        <div class="col form-group">
+            <select name="state" aria-placeholder="State" class="form-control" formControlName="state">
+            <option selected>State</option>
+            <option value="MH">MH</option>
+            <option value="UP">UP</option>
+            </select>
+        </div>
+        </div> 
+        <div class="row my-3">
+        <div class="col form-group">
+            <select name="country" aria-placeholder="Country" class="form-control" formControlName="country">
+            <option selected>Country</option>
+            <option value="India">India</option>
+            <option value="US">US</option>
+            </select>
+        </div>
+        </div>
+        <div class="row my-3">
+        <div class="col form-group">
+            <input type="text" class="form-control form-control-sm" placeholder="Address" formControlName="address">
+        </div>
+        </div> 
+        <div class="row my-3">
+        <div class="col form-group">
+            <input type="text" class="form-control form-control-sm" placeholder="Tags" formControlName="tags">
+        </div>
+        </div> 
+        <div class="row my-3">
+        <div class="col form-group">
+            <input type="checkbox" formControlName="subscribe"> subscribe to newletter
+        </div>
+        </div> 
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="dismissModal()">Cancel</button>
+        <button type="submit" [disabled]="regForm.invalid" class="btn btn-outline-dark" (click)="submit()">Save</button>
+    </div>
+</form>

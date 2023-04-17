@@ -1,0 +1,29 @@
+<div class="container-fluid py-5">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <p>Profile</p>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-2">
+        <div class="img">
+
+          <div class="img" >
+            <img [src]="imgurl" >
+            <input type="file" id="file" style="display:none;" (change)="onImageChange($event)" class="photo">
+          </div>
+    
+            <label class="span" for="file">Edit Photo</label>
+            
+            <span class="span" >Edit Profile</span>
+          </div>
+            </div>
+      <div class="col-4">
+        <p>I'm <span class="xyz">{{userdata.firstname}} {{userdata.lastname}}</span> and im above {{userdata.age}} years and you can send your emails to {{userdata.email}} i live in the state of Alaska. I like to play hockey, football and reading books. And please send me newsletters. Please reach out to me on my phone number.</p>
+        <br/>
+        <button type="button" class="btn btn-sm btn-primary" (click)="iagree()">I Agree</button>
+      </div>
+    </div>
+</div>
